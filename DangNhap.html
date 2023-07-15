@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form Đăng nhập</title>
+  <link rel="stylesheet" type="text/css" href="DangNhap.css">
+</head>
+
+<body>
+  <div class="wraper">
+    <form action="">
+      <h3>Đăng nhập</h3>
+      <div class="form-group">
+        <input type="text" name="email" id="edtTaiKhoan" required>
+        <label for="">Tài khoản</label>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" id="edtMatKhau" required>
+        <label for="">Mật khẩu</label>
+      </div>
+      <input type="button" id="btnLogin" onclick="dangNhap()" value="Đăng nhập"> </br>
+      <input type="button" name="Register" id="btnRegister" value="Đăng ký">
+    </form>
+  </div>
+</body>
+<script src="DangNhap.js"></script>
+
+</html>

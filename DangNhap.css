@@ -86,12 +86,15 @@ label {
 
 #btnLogin:hover {
   opacity: 0.8;
-  cursor: pointer;
 }
 
 #btnRegister {
   margin-top: 15px;
-  background: red;
+  background: rgb(219, 28, 28);
   color: #fff;
   cursor: pointer;
+}
+
+#btnRegister:hover {
+  opacity: 0.8;
 }
