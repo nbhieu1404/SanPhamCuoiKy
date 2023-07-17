@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav {
+    display: flex;
+    background-color: rgb(61, 232, 232);
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    background-color: rgb(61, 232, 232);
+    padding: 10px 20px;
+}
+
+.menu #account {
+    /* border-radius: 10px; */
+    background-color: rgb(128, 234, 199);
+    position: absolute;
+    right: 0;
+}
+
+.menu li:hover {
+    background-color: rgb(235, 247, 243);
+}
+
+
+
+#account {
+    position: relative;
+
+}
+
+.functionAccount {
+    display: none;
+    position: absolute;
+    left: 0%;
+    top: 100%;
+
+}
+
+.functionAccount li {
+    background-color: rgb(128, 234, 199);
+    /* border-radius: 5px; */
+}
+
+.menu #account:hover {
+    background-color: rgb(235, 247, 243);
+
+}
+.menu #account:hover .functionAccount{
+    background-color: rgb(235, 247, 243);
+    display: block;
+}
+
+.canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.pic {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+}
+
+.pic img {
+  width: 400px;
+  height: 400px;
+}
+
+.CSS: hover {
+    border: 10px;
+}
