@@ -45,11 +45,8 @@ li {
     background-color: rgb(235, 247, 243);
 }
 
-
-
 #account {
     position: relative;
-
 }
 
 .functionAccount {
@@ -69,29 +66,32 @@ li {
     background-color: rgb(235, 247, 243);
 
 }
-.menu #account:hover .functionAccount{
+
+.menu #account:hover .functionAccount {
     background-color: rgb(235, 247, 243);
     display: block;
 }
 
 .canvas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .pic {
-  display: flex;
-  justify-content: space-between;
-  width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    width: 1200px;
 }
 
 .pic img {
-  width: 400px;
-  height: 400px;
+    width: 400px;
+    height: 400px;
 }
 
-.CSS: hover {
-    border: 10px;
+.canvas .pic img:hover {
+    opacity: 0.5;
+    transform: translateY(-20%);
+    transition: all 0.3s ease-in-out;
 }

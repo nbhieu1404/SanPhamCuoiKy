@@ -69,7 +69,25 @@ li {
     background-color: rgb(235, 247, 243);
 
 }
-.menu #account:hover .functionAccount{
+
+.menu #account:hover .functionAccount {
     background-color: rgb(235, 247, 243);
     display: block;
+}
+
+#luaChonCauHoi {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+#dropdown{
+    margin-top: 2%;
+    width: 80%;
+    height: 40px;
+}
+#formCauHoi{
+    margin-top: 2%;
 }

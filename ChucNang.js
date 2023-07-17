@@ -33,12 +33,67 @@ function dangKy() {
         alert('Đăng ký thành công, mời bạn đăng nhập');
     }
 }
-function tenTaiKhoan() {
-    var taiKhoan = document.getElementById('edtTaiKhoan').value;
-    var user = localStorage.getItem(taiKhoan);
-    var data = JSON.parse(user);
+function clickCSS(){
+    window.location.href = 'CauHoiCSS.html';
+}
+//Lỗi
+// function tenTaiKhoan() {
+//     var taiKhoan = document.getElementById('edtTaiKhoan').value;
+//     var user = localStorage.getItem(taiKhoan);
+//     var data = JSON.parse(user);
 
-    if (data) {
-        document.getElementById('loggedInUsername').textContent = data.taiKhoan;
+//     if (data) {
+//         document.getElementById('loggedInUsername').textContent = data.taiKhoan;
+//     }
+// }
+function selectOption() {
+    var dropdown = document.getElementById('dropdown');
+    var selectedValue = dropdown.value;
+    var formCauHoi = document.getElementById('formCauHoi');
+
+    switch (selectedValue) {
+        case 'option1':
+            // Xóa nội dung cũ của formCauHoi (nếu có)
+            formCauHoi.innerHTML = '';
+
+            // Tạo form câu hỏi với 4 đáp án và chọn đáp án đúng
+            var formHTML = `
+                <form>
+                    <label>Câu hỏi</label>
+                    <input type="text" name="question"><br>
+                    <input type="radio" name="correctAnswer" value="answer1">
+                    <input type="text" name="answer1">
+                    <br>
+                    <input type="radio" name="correctAnswer" value="answer2">
+                    <input type="text" name="answer2">
+                    <br>
+                    <input type="radio" name="correctAnswer" value="answer3">
+                    <input type="text" name="answer3">
+                    <br>
+                    <input type="radio" name="correctAnswer" value="answer4">
+                    <input type="text" name="answer4">
+                    <br><br>
+                    <input type="submit" value="Tạo câu hỏi">
+                </form>
+            `;
+
+            formCauHoi.innerHTML = formHTML;
+            break;
+
+        case 'option2':
+
+            formCauHoi.innerHTML = '';
+
+            break;
+
+        case 'option3':
+            formCauHoi.innerHTML = '';
+
+            break;
+
+        default:
+            formCauHoi.innerHTML = '';
+
+            break;
     }
 }
