@@ -11,9 +11,66 @@ body {
     font-size: 17px;
 }
 
-.baoBoc {
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.thanhDieuHuong {
     display: flex;
-    flex-direction: column;
+    background-color: rgb(61, 232, 232);
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    background-color: rgb(61, 232, 232);
+    padding: 10px 20px;
+}
+
+.menu #account {
+    background-color: rgb(128, 234, 199);
+    position: absolute;
+    right: 0;
+}
+
+.menu li:hover {
+    background-color: rgb(235, 247, 243);
+}
+
+
+.phuongThucTaiKhoan {
+    display: none;
+    position: absolute;
+    left: 0%;
+    top: 100%;
+
+}
+
+.phuongThucTaiKhoan li {
+    background-color: rgb(128, 234, 199);
+    /* border-radius: 5px; */
+}
+
+.menu #account:hover {
+    background-color: rgb(235, 247, 243);
+
+}
+
+.menu #account:hover .phuongThucTaiKhoan {
+    background-color: rgb(235, 247, 243);
+    display: block;
+}
+
+.baoBocDoiMatKhau {
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
@@ -27,10 +84,6 @@ form {
 
 }
 
-h1 {
-    min-height: 10vh;
-}
-
 h3 {
     text-align: center;
     font-size: 24px;
@@ -42,6 +95,7 @@ input {
     height: 50px;
     width: 300px;
     outline: none;
+    /*Vạch đen bọc ngoài input*/
     border: 1px solid #dadce0;
     padding: 10px;
     border-radius: 5px;
@@ -73,13 +127,13 @@ label {
     color: #1a73e8;
 }
 
-#btnDangNhap {
+#btnDoiMatKhau {
     background: #1a73e8;
     color: #fff;
     cursor: pointer;
     margin-bottom: 15px;
 }
 
-#btnDangNhap:hover {
+#btnDoiMatKhau:hover {
     opacity: 0.8;
 }

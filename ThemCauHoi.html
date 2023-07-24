@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm câu hỏi CSS</title>
+    <link rel="stylesheet" href="ThemCauhoiCSS.css">
+</head>
+
+<body>
+    <!-- wraper -> baoBoc
+    nav -> thanhDieuHuong -->
+    <div id="baoBoc">
+        <div class="thanhDieuHuong">
+            <ul class="menu">
+                <li><a href="">Trang chủ</a></li>
+                <li><a href="">Tin tức</a></li>
+                <li><a href="">Liên hệ</a></li>
+            </ul>
+            <ul class="menu">
+                <li id="account"><a href="" id="tenTaiKhoan">Tài khoản</a>
+                    <!-- functionAccout -> phuongThucTaiKhoan -->
+                    <ul class="phuongThucTaiKhoan">
+                        <li><a href="">Đổi tài khoản</a></li>
+                        <li><a href="DangNhap.html">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- <div id="luaChonCauHoi">
+            <h2>Lựa chọn câu hỏi</h2>
+            <select id="dropdown" onchange="selectOption()">
+                <option value="option0">Vui lòng chọn loại câu hỏi</option>
+                <option value="option1">Câu hỏi 1 đáp án đúng</option>
+                <option value="option2">Câu hỏi 2 đáp án đúng</option>
+                <option value="option3">Câu hỏi điền đáp án</option>
+            </select>
+            <div id="formCauHoi"></div>
+        </div> -->
+    </div>
+</body>
+<script src="ChucNang.js"></script>
+
+</html>
