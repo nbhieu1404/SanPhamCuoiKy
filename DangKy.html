@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="DangKy.css">
+</head>
+
+<body>
+    <!-- wraper -> baoBoc -->
+    <div class="baoBoc">
+        <h1>Nhóm 17: Chủ để CSS</h1>
+        <form id="formDangKy">
+            <h3>Đăng Ký</h3>
+            <div class="form-group">
+                <input type="text" name="taiKhoan" id="edtDKTaiKhoan" required>
+                <label for="">Tài khoản</label>
+            </div>
+            <div class="form-group">
+                <input type="password" name="matKhau" id="edtDKMatKhau" required>
+                <label for="">Mật khẩu</label>
+            </div>
+            <!-- <button type="submit">Đăng ký</button> -->
+            <input type="submit" id="btnDangKy" value="Đăng ký"> </br>
+            <span>Đã có tài khoản? </span><a href="DangNhap.html">Đăng nhập</a>
+        </form>
+    </div>
+</body>
+<!-- <script src="ChucNang.js"> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Bắt sự kiện submit form đăng ký
+        document.getElementById('formDangKy').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const taiKhoan = document.getElementById('edtDKTaiKhoan').value;
+            var matKhau = document.getElementById('edtDKMatKhau').value;
+            var user = {
+                taiKhoan: taiKhoan,
+                matKhau: matKhau
+            }
+            const check = localStorage.getItem(taiKhoan)
+            if (check) {
+                alert('Tài khoản đã tồn tại');
+                document.getElementById('edtDKTaiKhoan').value = '';
+                document.getElementById('edtDKMatKhau').value = '';
+            } else {
+                localStorage.setItem(taiKhoan, JSON.stringify(user));
+                alert('Đăng ký thành công!');
+                window.location.href = 'DangNhap.html';
+            }
+        });
+    });
+</script>
+
+</html>

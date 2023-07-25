@@ -15,7 +15,7 @@ a {
     color: black;
 }
 
-.nav {
+.thanhDieuHuong {
     display: flex;
     background-color: rgb(61, 232, 232);
 }
@@ -35,7 +35,6 @@ li {
 }
 
 .menu #account {
-    /* border-radius: 10px; */
     background-color: rgb(128, 234, 199);
     position: absolute;
     right: 0;
@@ -46,21 +45,15 @@ li {
 }
 
 
-
-#account {
-    position: relative;
-
-}
-
-.functionAccount {
+.phuongThucTaiKhoan {
     display: none;
     position: absolute;
     left: 0%;
     top: 100%;
-
+    
 }
 
-.functionAccount li {
+.phuongThucTaiKhoan li {
     background-color: rgb(128, 234, 199);
     /* border-radius: 5px; */
 }
@@ -70,7 +63,7 @@ li {
 
 }
 
-.menu #account:hover .functionAccount {
+.menu #account:hover .phuongThucTaiKhoan {
     background-color: rgb(235, 247, 243);
     display: block;
 }

@@ -26,11 +26,9 @@ form {
     padding: 30px;
 
 }
-
 h1 {
     min-height: 10vh;
 }
-
 h3 {
     text-align: center;
     font-size: 24px;
@@ -42,6 +40,7 @@ input {
     height: 50px;
     width: 300px;
     outline: none;
+    /*Vạch đen bọc ngoài input*/
     border: 1px solid #dadce0;
     padding: 10px;
     border-radius: 5px;
@@ -73,13 +72,13 @@ label {
     color: #1a73e8;
 }
 
-#btnDangNhap {
-    background: #1a73e8;
+#btnDangKy {
+    background: #de3232;
     color: #fff;
     cursor: pointer;
     margin-bottom: 15px;
 }
 
-#btnDangNhap:hover {
+#btnDangKy:hover {
     opacity: 0.8;
 }

@@ -4,36 +4,66 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>Trang Chủ</title>
     <link rel="stylesheet" href="ChonKhoaHoc.css">
 
 <body>
-    <div id="wraper">
-        <div class="nav">
+    <!-- wraper -> baoBoc
+    nav -> thanhDieuHuong -->
+    <div id="baoBoc">
+        <div class="thanhDieuHuong">
             <ul class="menu">
-                <li><a href="">Trang chủ</a></li>
+                <li><a href="ChonKhoaHoc.html">Trang chủ</a></li>
                 <li><a href="">Tin tức</a></li>
                 <li><a href="">Liên hệ</a></li>
             </ul>
             <ul class="menu">
-                <li id="account"><a href="">Tài khoản</a>
-                    <ul class="functionAccount">
-                        <li><a href="">Đổi tài khoản</a></li>
-                        <li><a href="DangNhap.html">Đăng xuất</a></li>
+                <li id="account"><span id="tenTaiKhoan">Tài khoản</span>
+                    <!-- functionAccout -> phuongThucTaiKhoan -->
+                    <ul class="phuongThucTaiKhoan">
+                        <li><a href="DoiMatKhau.html">Đổi mật khẩu</a></li>
+                        <li><a href="#" id="dangXuat">Đăng xuất</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="canvas">
-        <div class="canvas">
+    <!-- canvas -> baoBocHinhAnh
+    canvas -> hinhAnh -->
+    <div class="baoBocHinhAnh">
+        <div class="hinhAnh">
             <div class="pic">
-                <img src="img/html.png" alt="HTML" class="HTML">
-                <img src="img/css.png" alt="CSS" class="CSS" onclick="clickCSS()">
-                <img src="img/js.png" alt="JS" class="JS">
+                <!-- HTML -> imgHTML
+                CSS ->imgCSS
+                JS ->imgJS -->
+                <img src="img/html.png" alt="HTML" class="imgHTML">
+                <img src="img/css.png" alt="CSS" class="imgCSS" onclick="clickCSS()">
+                <img src="img/js.png" alt="JS" class="imgJS">
             </div>
         </div>
     </div>
 </body>
-    <script src="ChucNang.js"></script>
+<script>
+
+    // Kiểm tra xem đã có tài khoản đăng nhập hay chưa
+    document.addEventListener('DOMContentLoaded', function () {
+        const loggedInUser = localStorage.getItem('taiKhoanDangNhap');
+        if (loggedInUser) {
+            document.getElementById('tenTaiKhoan').textContent = loggedInUser; // Cập nhật tên tài khoản vào thẻ span
+        } else {
+            // Nếu chưa đăng nhập, chuyển về trang đăng nhập
+            window.location.href = 'DangNhap.html';
+        }
+    });
+    document.getElementById('dangXuat').addEventListener('click', function (event) {
+        event.preventDefault(); // Ngăn chặn việc trình duyệt chuyển hướng đến "#" khi click vào liên kết
+        localStorage.removeItem('taiKhoanDangNhap');
+        window.location.href = 'DangNhap.html';
+    });
+
+    function clickCSS() {
+        window.location.href = 'ThemCauHoi.html';
+    }
+</script>
+
 </html>

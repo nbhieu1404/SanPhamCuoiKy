@@ -53,21 +53,6 @@ li {
 
 }
 
-.phuongThucTaiKhoan li {
-    background-color: rgb(128, 234, 199);
-    /* border-radius: 5px; */
-}
-
-.menu #account:hover {
-    background-color: rgb(235, 247, 243);
-
-}
-
-.menu #account:hover .phuongThucTaiKhoan {
-    background-color: rgb(235, 247, 243);
-    display: block;
-}
-
 .baoBocHinhAnh {
     display: flex;
     justify-content: center;
