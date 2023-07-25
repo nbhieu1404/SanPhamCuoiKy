@@ -47,6 +47,16 @@
     </div>
 </body>
 <script>
+    // Kiểm tra xem đã có tài khoản đăng nhập hay chưa
+    document.addEventListener('DOMContentLoaded', function () {
+        const loggedInUser = localStorage.getItem('taiKhoanDangNhap');
+        if (loggedInUser) {
+            document.getElementById('tenTaiKhoan').textContent = loggedInUser; // Cập nhật tên tài khoản vào thẻ span
+        } else {
+            // Nếu chưa đăng nhập, chuyển về trang đăng nhập
+            window.location.href = 'DangNhap.html';
+        }
+    });
     document.getElementById('dangXuat').addEventListener('click', function (event) {
         event.preventDefault(); // Ngăn chặn việc trình duyệt chuyển hướng đến "#" khi click vào liên kết
         localStorage.removeItem('taiKhoanDangNhap');

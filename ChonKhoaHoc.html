@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chọn khóa học</title>
+    <title>Trang Chủ</title>
     <link rel="stylesheet" href="ChonKhoaHoc.css">
 
 <body>
@@ -60,12 +60,10 @@
         localStorage.removeItem('taiKhoanDangNhap');
         window.location.href = 'DangNhap.html';
     });
-    // Xử lý sự kiện khi click vào liên kết "Đổi tài khoản"
-    document.getElementById('doiMatKhau').addEventListener('click', function (event) {
-        event.preventDefault(); // Ngăn chặn việc trình duyệt chuyển hướng đến "#" khi click vào liên kết
-        // Hiển thị form đổi mật khẩu
-        showChangePasswordForm();
-    });
+
+    function clickCSS() {
+        window.location.href = 'ThemCauHoi.html';
+    }
 </script>
 
 </html>

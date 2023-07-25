@@ -4,42 +4,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thêm câu hỏi CSS</title>
-    <link rel="stylesheet" href="ThemCauhoiCSS.css">
+    <title>Lưu câu hỏi CSS</title>
+    <link rel="stylesheet" href="ThemCauHoiCSS.css">
 </head>
 
 <body>
-    <!-- wraper -> baoBoc
+    <!-- wrapper -> baoBoc
     nav -> thanhDieuHuong -->
     <div id="baoBoc">
         <div class="thanhDieuHuong">
             <ul class="menu">
-                <li><a href="">Trang chủ</a></li>
+                <li><a href="ChonKhoaHoc.html">Trang chủ</a></li>
                 <li><a href="">Tin tức</a></li>
                 <li><a href="">Liên hệ</a></li>
             </ul>
             <ul class="menu">
-                <li id="account"><a href="" id="tenTaiKhoan">Tài khoản</a>
-                    <!-- functionAccout -> phuongThucTaiKhoan -->
+                <li id="account"><span id="tenTaiKhoan">Tài khoản</span>
+                    <!-- functionAccount -> phuongThucTaiKhoan -->
                     <ul class="phuongThucTaiKhoan">
-                        <li><a href="">Đổi tài khoản</a></li>
-                        <li><a href="DangNhap.html">Đăng xuất</a></li>
+                        <li><a href="DoiMatKhau.html">Đổi mật khẩu</a></li>
+                        <li><a href="#" id="dangXuat">Đăng xuất</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <!-- <div id="luaChonCauHoi">
-            <h2>Lựa chọn câu hỏi</h2>
-            <select id="dropdown" onchange="selectOption()">
-                <option value="option0">Vui lòng chọn loại câu hỏi</option>
-                <option value="option1">Câu hỏi 1 đáp án đúng</option>
-                <option value="option2">Câu hỏi 2 đáp án đúng</option>
-                <option value="option3">Câu hỏi điền đáp án</option>
-            </select>
-            <div id="formCauHoi"></div>
-        </div> -->
+        <section id="wrapper">
+            <!-- Thêm thẻ div với select và các option -->
+            <div>
+                <label for="loaiCauHoi">Chọn loại câu hỏi:</label>
+                <select id="loaiCauHoi">
+                    <option value="loai0">Chọn loại câu hỏi</option>
+                    <option value="loai1">Câu hỏi 1 đáp án</option>
+                    <option value="loai2">Câu hỏi 2 đáp án</option>
+                    <option value="loai3">Câu hỏi viết đáp án</option>
+                </select>
+            </div>
+
+            <div id="cauHoi1DaApAn" style="display: none;">
+                <!-- Thẻ div bao gồm các phần tử khi chọn "Câu hỏi 1 đáp án" -->
+                <label for="cauHoi">Câu hỏi:</label>
+                <input type="text" id="cauHoi">
+
+                <div id="dapAnContainer">
+                    <!-- Ô checkbox và input cho câu trả lời thứ 1 -->
+                    <input type="checkbox" id="dapAn1">
+                    <label for="cauTraLoi1">Đáp án 1:</label>
+                    <input type="text" id="cauTraLoi1">
+                    <br>
+                </div>
+
+                <button id="themDapAn">Thêm đáp án</button>
+                <button id="LuuCauHoi1DaApAn">Lưu câu hỏi</button>
+            </div>
+
+            <div id="cauHoi2DaApAn" style="display: none;">
+                <!-- Thẻ div bao gồm các phần tử khi chọn "Câu hỏi 2 đáp án" -->
+                <label for="cauHoi2">Câu hỏi:</label>
+                <input type="text" id="cauHoi2">
+
+                <div id="dapAnContainer2">
+                    <!-- Ô checkbox và input cho câu trả lời thứ 1 -->
+                    <input type="checkbox" id="dapAn1">
+                    <label for="cauTraLoi1">Đáp án 1:</label>
+                    <input type="text" id="cauTraLoi1">
+                    <br>
+
+                    <!-- Ô checkbox và input cho câu trả lời thứ 2 -->
+                    <input type="checkbox" id="dapAn2">
+                    <label for="cauTraLoi2">Đáp án 2:</label>
+                    <input type="text" id="cauTraLoi2">
+                    <br>
+                </div>
+
+                <button id="themDapAn2">Thêm đáp án</button>
+                <button id="LuuCauHoi2DaApAn">Lưu câu hỏi</button>
+            </div>
+
+            <div id="cauHoiVietDapAn" style="display: none;">
+                <!-- Thẻ div bao gồm các phần tử khi chọn "Câu hỏi viết đáp án" -->
+                <label for="cauHoiVietDapAn">Câu hỏi:</label>
+                <input type="text" id="cauHoiVietDapAn">
+                <label for="dapAnCauHoiVietDapAn">Đáp án</label>
+                <input type="text" id="dapAnCauHoiVietDapAn">
+                <button id="LuuCauHoiVietDapAn">Lưu câu hỏi</button>
+            </div>
+
+            <!-- Thẻ div danh sách câu hỏi -->
+            <div>
+                <p>Danh sách câu hỏi đã thêm:</p>
+                <table>
+                    <tr>
+                        <th>Câu hỏi</th>
+                        <th>Loại câu hỏi</th>
+                        <th>Số đáp án</th>
+                        <th>Đáp án đúng</th>
+                        <th>Người thêm</th>
+                        <th>Chỉnh sửa</th>
+                        <th>Xóa câu hỏi</th>
+                    </tr>
+                    <!-- Dữ liệu sẽ được cập nhật tại đây -->
+                </table>
+            </div>
+        </section>
     </div>
 </body>
-<script src="ChucNang.js"></script>
+<script>
+    let dapAnCount = 1;
+    // Kiểm tra xem đã có tài khoản đăng nhập hay chưa
+    document.addEventListener('DOMContentLoaded', function () {
+        const loggedInUser = localStorage.getItem('taiKhoanDangNhap');
+        if (loggedInUser) {
+            document.getElementById('tenTaiKhoan').textContent = loggedInUser; // Cập nhật tên tài khoản vào thẻ span
+        } else {
+            // Nếu chưa đăng nhập, chuyển về trang đăng nhập
+            window.location.href = 'DangNhap.html';
+        }
+
+        // Lấy danh sách câu hỏi và đáp án từ localStorage (nếu có)
+        const savedQuestions = JSON.parse(localStorage.getItem('danhSachCauHoi')) || [];
+        // Hiển thị các câu hỏi đã lưu lên bảng
+        const table = document.querySelector('table');
+        savedQuestions.forEach((question) => {
+            const row = table.insertRow(-1);
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            const cell4 = row.insertCell(3);
+            const cell5 = row.insertCell(4);
+            const cell6 = row.insertCell(5);
+            const cell7 = row.insertCell(6);
+            cell1.innerHTML = question.cauHoi;
+            cell2.innerHTML = question.loaiCauHoi;
+            cell3.innerHTML = question.soDapAn;
+            cell4.innerHTML = question.dapAnDung;
+            cell5.innerHTML = question.nguoiThem;
+            cell6.innerHTML = `<button onclick="editRow(this)">Chỉnh sửa</button>`;
+            cell7.innerHTML = `<button onclick="deleteRow(this)">Xóa câu hỏi</button>`;
+        });
+    });
+
+    // Lưu tên tài khoản đăng nhập vào localStorage
+    document.getElementById('dangXuat').addEventListener('click', function () {
+        localStorage.removeItem('taiKhoanDangNhap');
+        window.location.href = 'DangNhap.html'; // Chuyển về trang đăng nhập sau khi đăng xuất
+    });
+
+    // Hiển thị phần nhập đáp án khi chọn loại câu hỏi
+    document.getElementById('loaiCauHoi').addEventListener('change', function () {
+        const cauHoi1 = document.getElementById('cauHoi1DaApAn');
+        const cauHoi2 = document.getElementById('cauHoi2DaApAn');
+        const cauHoiVietDapAn = document.getElementById('cauHoiVietDapAn');
+        const loaiCauHoi = this.value;
+        if (loaiCauHoi === 'loai1') {
+            cauHoi1.style.display = 'block';
+            cauHoi2.style.display = 'none';
+            cauHoiVietDapAn.style.display = 'none';
+        } else if (loaiCauHoi === 'loai2') {
+            cauHoi1.style.display = 'none';
+            cauHoi2.style.display = 'block';
+            cauHoiVietDapAn.style.display = 'none';
+        } else if (loaiCauHoi === 'loai3') {
+            cauHoi1.style.display = 'none';
+            cauHoi2.style.display = 'none';
+            cauHoiVietDapAn.style.display = 'block';
+        } else {
+            cauHoi1.style.display = 'none';
+            cauHoi2.style.display = 'none';
+            cauHoiVietDapAn.style.display = 'none';
+        }
+    });
+
+    // Xử lý khi nhấn nút "Thêm đáp án" (cho loại câu hỏi có 1 đáp án)
+    document.getElementById('themDapAn').addEventListener('click', function () {
+        if (dapAnCount >= 4) {
+            alert('Không thể thêm nữa. Đã đạt tối đa 4 đáp án.');
+            return;
+        }
+
+        dapAnCount++; // Tăng số lượng đáp án lên 1
+
+        const dapAnContainer = document.getElementById('dapAnContainer');
+        const newCheckbox = document.createElement('input');
+        newCheckbox.type = 'checkbox';
+        newCheckbox.id = 'dapAn' + dapAnCount;
+        const newLabel = document.createElement('label');
+        newLabel.htmlFor = 'cauTraLoi' + dapAnCount;
+        newLabel.textContent = 'Đáp án ' + dapAnCount + ':';
+        const newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.id = 'cauTraLoi' + dapAnCount;
+
+        dapAnContainer.appendChild(newCheckbox);
+        dapAnContainer.appendChild(newLabel);
+        dapAnContainer.appendChild(newInput);
+        dapAnContainer.appendChild(document.createElement('br'));
+    });
+
+    // Xử lý khi nhấn nút "Thêm đáp án" (cho loại câu hỏi có 2 đáp án)
+    document.getElementById('themDapAn2').addEventListener('click', function () {
+        if (dapAnCount >= 4) {
+            alert('Không thể thêm nữa. Đã đạt tối đa 4 đáp án.');
+            return;
+        }
+
+        dapAnCount++; // Tăng số lượng đáp án lên 1
+
+        const dapAnContainer = document.getElementById('dapAnContainer2');
+        const newCheckbox = document.createElement('input');
+        newCheckbox.type = 'checkbox';
+        newCheckbox.id = 'dapAn' + dapAnCount;
+        const newLabel = document.createElement('label');
+        newLabel.htmlFor = 'cauTraLoi' + dapAnCount;
+        newLabel.textContent = 'Đáp án ' + dapAnCount + ':';
+        const newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.id = 'cauTraLoi' + dapAnCount;
+
+        dapAnContainer.appendChild(newCheckbox);
+        dapAnContainer.appendChild(newLabel);
+        dapAnContainer.appendChild(newInput);
+        dapAnContainer.appendChild(document.createElement('br'));
+    });
+
+    // Xử lý khi nhấn nút "Lưu câu hỏi" cho câu hỏi có 1 đáp án
+    document.getElementById('LuuCauHoi1DaApAn').addEventListener('click', function () {
+        const cauHoi = document.getElementById('cauHoi').value;
+        if (!cauHoi) {
+            alert('Vui lòng nhập câu hỏi.');
+            return;
+        }
+
+        const dapAn = document.getElementById('cauTraLoi1').value;
+        if (!dapAn) {
+            alert('Vui lòng nhập đáp án.');
+            return;
+        }
+
+        const cauHoiData = {
+            cauHoi: cauHoi,
+            loaiCauHoi: 'Câu hỏi 1 đáp án',
+            soDapAn: 1,
+            dapAn1: dapAn,
+            dapAn2: '',
+            dapAnDung: dapAn,
+            nguoiThem: localStorage.getItem('taiKhoanDangNhap'),
+        };
+
+        saveQuestion(cauHoiData);
+    });
+
+    // Xử lý khi nhấn nút "Lưu câu hỏi" cho câu hỏi có 2 đáp án
+    document.getElementById('LuuCauHoi2DaApAn').addEventListener('click', function () {
+        const cauHoi2 = document.getElementById('cauHoi2').value;
+        if (!cauHoi2) {
+            alert('Vui lòng nhập câu hỏi.');
+            return;
+        }
+
+        const dapAn1 = document.getElementById('cauTraLoi1').value;
+        const dapAn2 = document.getElementById('cauTraLoi2').value;
+
+        if (!dapAn1 || !dapAn2) {
+            alert('Vui lòng nhập cả hai đáp án.');
+            return;
+        }
+
+        const dapAnDung = getSelectedDapAn();
+
+        if (!dapAnDung) {
+            alert('Vui lòng chọn đáp án đúng.');
+            return;
+        }
+
+        const cauHoiData = {
+            cauHoi: cauHoi2,
+            loaiCauHoi: 'Câu hỏi 2 đáp án',
+            soDapAn: 2,
+            dapAn1: dapAn1,
+            dapAn2: dapAn2,
+            dapAnDung: dapAnDung,
+            nguoiThem: localStorage.getItem('taiKhoanDangNhap'),
+        };
+
+        saveQuestion(cauHoiData);
+    });
+
+    // Xử lý khi nhấn nút "Lưu câu hỏi" cho câu hỏi viết đáp án
+    document.getElementById('LuuCauHoiVietDapAn').addEventListener('click', function () {
+        const cauHoiVietDapAn = document.getElementById('cauHoiVietDapAn')
+        const dapAnCauHoiVietDapAn = document.getElementById('dapAnCauHoiVietDapAn')
+        if (!cauHoiVietDapAn || !dapAnCauHoiVietDapAn) {
+            alert('Vui lòng nhập cả câu hỏi và đáp án.');
+            return;
+        }
+
+        const cauHoiData = {
+            cauHoi: cauHoiVietDapAn,
+            loaiCauHoi: 'Câu hỏi viết đáp án',
+            soDapAn: 1,
+            dapAn1: dapAnCauHoiVietDapAn,
+            dapAn2: '',
+            dapAnDung: dapAnCauHoiVietDapAn,
+            nguoiThem: localStorage.getItem('taiKhoanDangNhap'),
+        };
+
+        saveQuestion(cauHoiData);
+    });
+
+    // Hàm lưu câu hỏi vào localStorage
+    function saveQuestion(cauHoiData) {
+        // Lấy danh sách câu hỏi đã lưu từ localStorage
+        const savedQuestions = JSON.parse(localStorage.getItem('danhSachCauHoi')) || [];
+        // Thêm câu hỏi mới vào danh sách
+        savedQuestions.push(cauHoiData);
+        // Lưu danh sách câu hỏi mới vào localStorage
+        localStorage.setItem('danhSachCauHoi', JSON.stringify(savedQuestions));
+
+        // Hiển thị câu hỏi vừa thêm lên bảng
+        const table = document.querySelector('table');
+        const row = table.insertRow(-1);
+        const cell1 = row.insertCell(0);
+        const cell2 = row.insertCell(1);
+        const cell3 = row.insertCell(2);
+        const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
+        const cell6 = row.insertCell(5);
+        const cell7 = row.insertCell(6);
+        cell1.innerHTML = cauHoiData.cauHoi;
+        cell2.innerHTML = cauHoiData.loaiCauHoi;
+        cell3.innerHTML = cauHoiData.soDapAn;
+        cell4.innerHTML = cauHoiData.dapAnDung;
+        cell5.innerHTML = cauHoiData.nguoiThem;
+        cell6.innerHTML = `<button onclick="editRow(this)">Chỉnh sửa</button>`;
+        cell7.innerHTML = `<button onclick="deleteRow(this)">Xóa câu hỏi</button>`;
+
+        // Reset form
+        document.getElementById('cauHoi').value = '';
+        document.getElementById('cauHoi2').value = '';
+        document.getElementById('cauHoiVietDapAn').value = '';
+        document.getElementById('dapAnCauHoiVietDapAn').value = '';
+        resetDapAnInputs();
+    }
+
+    // Hàm lấy đáp án đúng (cho loại câu hỏi có 2 đáp án)
+    function getSelectedDapAn() {
+        const dapAn1Checkbox = document.getElementById('dapAn1');
+        const dapAn2Checkbox = document.getElementById('dapAn2');
+        if (dapAn1Checkbox.checked) {
+            return document.getElementById('cauTraLoi1').value;
+        } else if (dapAn2Checkbox.checked) {
+            return document.getElementById('cauTraLoi2').value;
+        } else {
+            return '';
+        }
+    }
+
+    // Hàm reset các input đáp án (cho loại câu hỏi có 2 đáp án)
+    function resetDapAnInputs() {
+        document.getElementById('dapAn1').checked = false;
+        document.getElementById('dapAn2').checked = false;
+        document.getElementById('cauTraLoi1').value = '';
+        document.getElementById('cauTraLoi2').value = '';
+        dapAnCount = 2; // Reset lại số lượng đáp án về 2
+    }
+
+    // Hàm xử lý khi nhấn nút "Chỉnh sửa" (hiển thị thông tin câu hỏi vào form)
+    function editRow(button) {
+        const row = button.parentElement.parentElement;
+        const cauHoi = row.cells[0].textContent;
+        const loaiCauHoi = row.cells[1].textContent;
+        const dapAnDung = row.cells[3].textContent;
+        const cauHoiInput = document.getElementById('cauHoi');
+        const cauHoi2Input = document.getElementById('cauHoi2');
+        const cauHoiVietDapAnInput = document.getElementById('cauHoiVietDapAn');
+        const dapAnCauHoiVietDapAnInput = document.getElementById('dapAnCauHoiVietDapAn');
+        const loaiCauHoiSelect = document.getElementById('loaiCauHoi');
+        const luuCauHoi1DaApAn = document.getElementById('LuuCauHoi1DaApAn');
+        const luuCauHoi2DaApAn = document.getElementById('LuuCauHoi2DaApAn');
+        const luuCauHoiVietDapAn = document.getElementById('LuuCauHoiVietDapAn');
+
+        // Hiển thị phần nhập đáp án phù hợp với loại câu hỏi
+        if (loaiCauHoi === 'Câu hỏi 1 đáp án') {
+            loaiCauHoiSelect.value = 'loai1';
+            cauHoiInput.value = cauHoi;
+            luuCauHoi1DaApAn.click(); // Mô phỏng việc chọn loại câu hỏi để hiển thị đúng phần nhập câu hỏi
+            document.getElementById('cauTraLoi1').value = dapAnDung;
+        } else if (loaiCauHoi === 'Câu hỏi 2 đáp án') {
+            loaiCauHoiSelect.value = 'loai2';
+            cauHoi2Input.value = cauHoi;
+            luuCauHoi2DaApAn.click(); // Mô phỏng việc chọn loại câu hỏi để hiển thị đúng phần nhập câu hỏi
+            const dapAn1 = row.cells[3].textContent;
+            const dapAn2 = row.cells[4].textContent;
+            document.getElementById('cauTraLoi1').value = dapAn1;
+            document.getElementById('cauTraLoi2').value = dapAn2;
+            if (dapAnDung === dapAn1) {
+                document.getElementById('dapAn1').checked = true;
+            } else {
+                document.getElementById('dapAn2').checked = true;
+            }
+        } else if (loaiCauHoi === 'Câu hỏi viết đáp án') {
+            loaiCauHoiSelect.value = 'loai3';
+            cauHoiVietDapAnInput.value = cauHoi;
+            luuCauHoiVietDapAn.click(); // Mô phỏng việc chọn loại câu hỏi để hiển thị đúng phần nhập câu hỏi
+            document.getElementById('dapAnCauHoiVietDapAn').value = dapAnDung;
+        }
+    }
+
+    // Hàm xóa câu hỏi khỏi bảng và localStorage
+    function deleteRow(button) {
+        const row = button.parentElement.parentElement;
+        const table = row.parentElement;
+        const savedQuestions = JSON.parse(localStorage.getItem('danhSachCauHoi')) || [];
+
+        // Xác định vị trí câu hỏi trong mảng và xóa khỏi danh sách
+        const index = row.rowIndex - 1; // Trừ đi 1 vì có dòng tiêu đề
+        savedQuestions.splice(index, 1);
+
+        // Cập nhật lại localStorage
+        localStorage.setItem('danhSachCauHoi', JSON.stringify(savedQuestions));
+
+        // Xóa câu hỏi khỏi bảng
+        table.deleteRow(row.rowIndex);
+    }
+</script>
 
 </html>
